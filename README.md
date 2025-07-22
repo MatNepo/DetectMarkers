@@ -1,4 +1,4 @@
-# Example 1: Marker Detection Project
+# Marker Detection Project
 
 ## Описание
 

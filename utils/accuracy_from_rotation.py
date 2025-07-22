@@ -1,7 +1,6 @@
 import csv
 from collections import defaultdict
 
-# �������������� ������� ��� �������� ������ �� ������� �������
 detection_data = defaultdict(lambda: {"detections": 0, "attempts": 0, "tvec_error_sum": 0, "rvec_error_sum": 0})
 
 def log_detection_data(marker_id, yaw, pitch, roll, success, tvec_error, rvec_error):
@@ -22,7 +21,6 @@ def save_results_to_csv(filename="data/detection_analysis.csv"):
             avg_rvec_error = data["rvec_error_sum"] / data["detections"] if data["detections"] > 0 else 0
             writer.writerow([marker_id, yaw, pitch, roll, detection_rate, avg_tvec_error, avg_rvec_error])
 
-            # � ����� ����������� ��������
             if retval:
                 euler_angles = rotation_vector_to_euler(rvec)
                 tvec_error = np.linalg.norm(tvec - true_tvec)
